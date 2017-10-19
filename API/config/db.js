@@ -13,5 +13,5 @@ db.once('open', function(err){
         return;
     }
 
-    console.log("connected succesfully");
+    console.log("connected succesfully with mongo :3");
 })
