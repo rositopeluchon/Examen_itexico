@@ -3,14 +3,17 @@ const Schema = mongoose.Schema;
 
 var productSchema = new Schema({
     name: String,
-    price: Number,
+    price: String,
     description: String,
-    proveedor: String,
+    provider: [],
+
     //date: {type: Date, default: Date.now },
-    dimensions:{
+  /*  dimensions:{
         height:Number,
         width: Number
-    },
+    },*/
+    size: String,
+
     create_at:{type: Date, default: Date.now},
     update_at:{type: Date, default: Date.now}
 

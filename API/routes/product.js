@@ -30,7 +30,7 @@ route.post('/', function(req, res){
         name: req.body.name,
         description: req.body.description,
         price: req.body.price,
-       // proveedor: req.body.proveedor
+        provider: req.body.provider
 
     })
 
@@ -44,6 +44,22 @@ route.post('/', function(req, res){
 //modificar uno
 route.put('/:id', function(req, res){
     //res.status(200).put("haciendo put");
+    Product.findByIdAndUpdate(req.params.id, 
+        {
+            name: req.body.name,
+            description: req.body.name,
+            price: req.body.price,
+            provider: req.body.provider
+        },
+        function(err, product){
+            if(err){
+                console.log("ERROR "+err);
+                return;
+            }
+            res.status(200).send(product);
+
+    })
+
 
 })
 

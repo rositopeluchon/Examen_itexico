@@ -9,6 +9,7 @@ let productRoutes =require("./routes/product.js");
 //pueda hacer peticiones desde dorimlarios de html
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
+app.use(bodyParser.json({type:'application/vnd.api+json'}));
 
 app.use('/products', productRoutes);
 
