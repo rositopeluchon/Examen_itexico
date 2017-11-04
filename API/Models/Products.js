@@ -6,6 +6,7 @@ var productSchema = new Schema({
     price: String,
     description: String,
     provider: [],
+    img: String,
 
     //date: {type: Date, default: Date.now },
   /*  dimensions:{

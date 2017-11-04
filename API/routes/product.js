@@ -30,7 +30,8 @@ route.post('/', function(req, res){
         name: req.body.name,
         description: req.body.description,
         price: req.body.price,
-        provider: req.body.provider
+        provider: req.body.provider,
+        img: req.body.img,
 
     })
 
@@ -49,7 +50,8 @@ route.put('/:id', function(req, res){
             name: req.body.name,
             description: req.body.name,
             price: req.body.price,
-            provider: req.body.provider
+            provider: req.body.provider,
+            img: req.body.img,
         },
         function(err, product){
             if(err){
@@ -66,9 +68,9 @@ route.put('/:id', function(req, res){
 //borrar
 route.delete('/:id', function(req, res){
     //res.status(200).delete(1);
-    Product.findByIdAndRemove(req.params.id, function(err, res){
+    Product.findByIdAndRemove(req.params.id, function(err, product){
         if(err){
-            console.log("Error "+err);
+            console.log("Error ----> "+err);
             return;
         }
         res.status(200).send(product);

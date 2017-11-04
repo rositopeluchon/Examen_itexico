@@ -1,0 +1,18 @@
+table{
+    align-content: center;
+    align-self: center;
+}
+img{
+    width: 300px;
+    height: 300px;
+}
+
+.pd-20{
+    padding: 20px!important;
+}
+
+h1{
+    color: #81F7F3!important;
+    background-color: #81F7F3;
+}
+

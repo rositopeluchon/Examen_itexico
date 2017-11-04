@@ -1,0 +1,153 @@
+
+  <div>
+    <div>
+      <div class="row">
+        <div class="col col-xs-4">
+            <div class="form-group">
+                <label for="Image Url">ImageURL</label>
+                <input type="text" class="form-control" id="Image Url" [(ngModel)]="newDog[0].img">
+              </div>
+        </div>
+        <div class="col col-xs-4">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" [(ngModel)]="newDog[0].name">
+              </div>
+        </div>
+
+        <div class="col col-xs-4">
+            <div class="form-group">
+                <label for="price">Price</label>
+                <input type="text" class="form-control" id="price" [(ngModel)]="newDog[0].price">
+              </div>
+        </div>
+        <div class="col col-xs-4">
+            <div class="form-group">
+                <label for="description">Description</label>
+                <input type="text" class="form-control" id="description" [(ngModel)]="newDog[0].description">
+              </div>
+        </div>
+
+        <div class="col col-xs-4">
+            <div class="form-group">
+                <label for="provider">Provider</label>
+                <input type="text" class="form-control" id="provider" [(ngModel)]="newDog[0].provider">
+              </div>
+        </div>
+
+      </div>
+
+      <button class="btn btn-lg btn-info" (click)="addDog()" [disabled]="disableButton()">Add Product</button>
+    
+ 
+  
+ 
+  </div>
+  <hr>
+  
+  <div class="row">
+    <div class="col">
+
+      <div class="card-columns">
+
+          <div class="card pd-20" *ngFor="let prod of photos">
+              <img class="card-img-top img-fluid" [src]="prod.img" alt="Card image cap">
+              <div class="card-block">
+                
+                <h4 class="card-title">{{prod.name | uppercase}}</h4>
+                <p class="card-text">{{prod.description}}</p>
+                <p>{{prod.provider}}</p>
+                <p class="card-text"><small class="text-muted">{{prod.price | currency:'USD':true}}</small></p>
+                
+                <button class="btn btn-outline-danger" (click)="removeDog(prod)">Remove</button>
+                  
+                  <button class="btn btn-outline-info" (click)="open(content, prod)">Edit</button>
+
+                  <hr>
+              </div>
+
+               
+
+      </div>
+      <ng-template #content let-c="close" let-d="dismiss">
+          <div class="modal-header">
+            <h4 class="modal-title">{{dogToEdit.name | uppercase}}</h4>
+            <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+              <div class="card">
+                  <img class="card-img-top img-fluid" [src]="dogToEdit.img" alt="Card image cap">
+                  <div class="card-block">
+                      
+                              <div class="form-group">
+                                  <label for="Image Url">ImageURL</label>
+                                  <input type="text" class="form-control" id="Image Url" [(ngModel)]="dogToEdit.img">
+                                </div>
+                         
+                              <div class="form-group">
+                                  <label for="name">Name</label>
+                                  <input type="text" class="form-control" id="name" [(ngModel)]="dogToEdit.name">
+                                </div>
+                          
+                              <div class="form-group">
+                                  <label for="price">Price</label>
+                                  <input type="text" class="form-control" id="price" [(ngModel)]="dogToEdit.price">
+                                </div>
+                          
+                              <div class="form-group">
+                                  <label for="description">Description</label>
+                                  <input type="text" class="form-control" id="description" [(ngModel)]="dogToEdit.description">
+                                </div>
+                          
+                              <div class="form-group">
+                                  <label for="provider">Provider</label>
+                                  <input type="text" class="form-control" id="provider" [(ngModel)]="dogToEdit.provider">
+                                </div>
+                          
+                    <hr>
+                  </div>
+          </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-danger" (click)="c('Close click')">Close</button>
+            <button type="button" class="btn btn-outline-primary" (click)="editProduct()">Save</button>
+          </div>
+        </ng-template>
+
+    
+
+
+      
+        
+    </div>
+  </div>
+  </div>
+
+
+ 
+
+  
+
+  
+
+  <!--
+
+  <dog-description [dog]='currentDog'></dog-description>
+
+  <table>
+    <tr *ngFor="let photo of photos">
+      <td>
+          {{photo.title}}
+      </td>
+      <td>
+        <img [src]="photo.url">
+      </td>
+    </tr>
+  </table>
+    !-->
+    
+  
+  
+
